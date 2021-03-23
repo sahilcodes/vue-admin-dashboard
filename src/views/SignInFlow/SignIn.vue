@@ -39,15 +39,14 @@
 <script>
 export default {
   name: "SignIn",
-  data: function () {
-    return {
-      isDarkMode: true,
-    };
+  computed: {
+    isDarkMode() {
+      return this.$store.getters.isDarkMode;
+    },
   },
   methods: {
     toggleDarkMode() {
-      this.isDarkMode = !this.isDarkMode;
-      document.body.style.background = this.isDarkMode ? "#212C4F" : "#F0F3F5";
+      this.$store.commit("toggleDarkMode");
     },
   },
 };
